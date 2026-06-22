@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FAIZ AL AMIRIN | Sharia Finance & Legal Professional</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Outfit:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+</head>
+<body>
+
+<!-- Mesh background -->
+<div class="mesh-bg">
+  <div class="mesh-orb orb1"></div>
+  <div class="mesh-orb orb2"></div>
+  <div class="mesh-orb orb3"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="fixed top-0 z-10 w-full mt-4 px-2 md:px-4">
+  <div class="glass rounded-xl shadow-lg w-full max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="#home" class="brand-logo">Faiz Al Amirin</a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#home" class="nav-link active" data-section="home">Home</a>
+      <a href="#about" class="nav-link" data-section="about">About</a>
+      <a href="#journey" class="nav-link" data-section="journey">Education</a>
+      <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+      <a href="#projects" class="nav-link" data-section="projects">Experience</a>
+      <a href="#portfolio" class="nav-link" data-section="portfolio">Portfolio</a>
+      <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+
+      <!-- Theme toggle -->
+      <div style="display:flex;align-items:center;gap:8px">
+        <span class="material-symbols-outlined" style="font-size:16px;color:var(--text3)" id="icon-dark">dark_mode</span>
+        <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+        <span class="material-symbols-outlined" style="font-size:16px;color:var(--text3)" id="icon-light">light_mode</span>
+      </div>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button class="md:hidden" onclick="toggleMobile()" style="color:var(--text2)">
+      <span class="material-symbols-outlined" id="menu-icon">menu</span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="hidden fixed top-[90px] left-4 right-4 z-40 glass rounded-xl px-6 py-6 flex flex-col gap-4 shadow-lg">
+  <a href="#home" class="nav-link" onclick="closeMobile()">Home</a>
+  <a href="#about" class="nav-link" onclick="closeMobile()">About</a>
+  <a href="#journey" class="nav-link" onclick="closeMobile()">Education</a>
+  <a href="#skills" class="nav-link" onclick="closeMobile()">Skills</a>
+  <a href="#projects" class="nav-link" onclick="closeMobile()">Experience</a>
+  <a href="#portfolio" class="nav-link" onclick="closeMobile()">Portfolio</a>
+  <a href="#contact" class="nav-link" onclick="closeMobile()">Contact</a>
+  <div style="display:flex;align-items:center;gap:10px;padding-top:8px">
+    <span style="font-size:13px;color:var(--text3)">Dark</span>
+    <button class="theme-toggle" onclick="toggleTheme()"></button>
+    <span style="font-size:13px;color:var(--text3)">Light</span>
+  </div>
+</div>
+
+<main style="position:relative;z-index:1">
+
+<!-- ═══════════════════════════════════════
+     SECTION 1: HERO
+═══════════════════════════════════════ -->
+<section id="home" style="min-height:100vh;display:flex;align-items:center;padding:120px 24px 80px;max-width:1200px;margin:0 auto">
+  <div style="display:grid;grid-template-columns:1fr;gap:48px;width:100%;align-items:center" class="md-grid-2">
+
+    <!-- Left: text -->
+    <div class="reveal" style="display:flex;flex-direction:column;gap:24px">
+      <div class="section-label" id="typing-label" style="font-family: 'Cormorant Garamond', serif; font-style: italic; text-transform: none; font-size: clamp(18px, 2.5vw, 22px); letter-spacing: 0.02em;">Hallo, I'am</div>
+
+      <div>
+        <h1 class="slide-in-right" id="typing-title" style="font-family: 'Caveat', cursive; font-size: clamp(60px, 9vw, 92px); line-height: 1.1; font-weight: 700; color: var(--text);">
+          Faiz Al <span style="color:var(--accent)">Amirin</span>
+        </h1>
+        <div style="height:4px;width:80px;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:2px;margin-top:16px"></div>
+      </div>
+
+      <h2 class="font-display" style="font-size:clamp(18px,2.5vw,22px);font-weight:400;font-style:italic;color:var(--text2);line-height:1.5;max-width:520px">
+        Sharia Finance | Legal Analyst | Certified Risk Associate (CRA) |<br>Data Analytics & Visual Communication
+      </h2>
+
+      <p style="font-size:16px;line-height:1.75;color:var(--text3);max-width:480px">
+        Fresh Graduate Program Studi Hukum Ekonomi Syariah dengan fokus pada integrasi hukum, keuangan syariah, dan komunikasi visual yang berdampak.
+      </p>
+
+      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:16px;padding-top:8px">
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+          <a href="https://drive.google.com/file/d/1n3XjDbsyfixChlLGaJzYGWVHqqdZRc2k/view?usp=sharing" class="btn-primary">
+            <span class="material-symbols-outlined" style="font-size:18px">download</span>
+            Unduh CV
+          </a>
+          <a href="#contact" class="btn-outline">
+            <span class="material-symbols-outlined" style="font-size:18px">mail</span>
+            Hubungi Saya
+          </a>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <a href="https://linkedin.com/in/faiz-al-amirin" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/pppaizz_al?" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <a href="http://www.tiktok.com/@ppppaizzzz" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.89-.6-4.09-1.47-.77-.56-1.44-1.27-1.95-2.1v9.31c.03 1.93-.52 3.86-1.68 5.34-1.4 1.83-3.69 2.92-5.99 2.92-2.3 0-4.59-1.09-5.99-2.92-1.16-1.48-1.71-3.41-1.68-5.34.03-1.93.52-3.86 1.68-5.34 1.4-1.83 3.69-2.92 5.99-2.92.51 0 1.02.05 1.52.15v4.07c-.5-.1-1.01-.15-1.52-.15-1.15 0-2.3.54-3 1.46-.58.74-.86 1.7-.84 2.67.02.97.3 1.93.88 2.67.7.92 1.85 1.46 3 1.46 1.15 0 2.3-.54 3-1.46.58-.74.86-1.7.84-2.67V0h.04z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div style="display:flex;gap:32px;padding-top:12px;border-top:1px solid var(--border)">
+        <div>
+          <div class="font-display" style="font-size:32px;font-weight:700;color:var(--accent)">3.85</div>
+          <div style="font-size:12px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:0.08em">IPK</div>
+        </div>
+        <div>
+          <div class="font-display" style="font-size:32px;font-weight:700;color:var(--gold)">2+</div>
+          <div style="font-size:12px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:0.08em">Certificate</div>
+        </div>
+        <div>
+          <div class="font-display" style="font-size:32px;font-weight:700;color:var(--text2)">5+</div>
+          <div style="font-size:12px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:0.08em">Experience</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: photo -->
+    <div class="reveal hidden-mobile" style="display:flex;justify-content:center;align-items:center;position:relative">
+      <div class="hero-photo" style="width:100%;max-width:420px">
+        <div class="glass" style="border-radius:20px;overflow:hidden;transform:rotate(1.5deg);transition:transform 0.7s">
+          <img
+            src="/Users/faizal/Documents/porto new 2/images/Faiz Al Amirin.jpg"
+            alt="Faiz Al Amirin"
+            style="width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:grayscale(20%);transition:filter 0.7s"
+            onmouseover="this.style.filter='grayscale(0%);transform:rotate(-1.5deg)'"
+            onmouseout="this.style.filter='grayscale(20%)'"
+          />
+        </div>
+      </div>
+
+      <!-- Floating badge -->
+      <div class="float-badge glass" style="position:absolute;bottom:-16px;left:-16px;padding:12px 16px;border-radius:12px;display:flex;align-items:center;gap:10px;z-index:10">
+        <span class="material-symbols-outlined" style="color:var(--gold);font-size:20px">verified</span>
+        <div>
+          <div style="font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:0.1em">BNSP CERTIFIED</div>
+          <div style="font-size:13px;font-weight:600;color:var(--text)">Risk Management</div>
+        </div>
+      </div>
+
+      <!-- Floating badge 2 -->
+      <div class="float-badge glass" style="position:absolute;top:24px;right:-24px;padding:10px 14px;border-radius:10px;animation-delay:1.5s">
+        <div style="font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;text-align:center">AWARDEE</div>
+        <div style="font-size:11px;font-weight:600;color:var(--accent);text-align:center">2023 & 2025</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 2: ABOUT / EXPERTISE
+═══════════════════════════════════════ -->
+<section id="about" style="background:var(--bg2);padding:100px 24px;transition:background 0.5s">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="divider" style="margin-bottom:64px"></div>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:48px;align-items:start" class="md-grid-2">
+
+      <!-- Left sticky text -->
+      <div class="reveal">
+        <div class="section-label" style="margin-bottom:20px">About Me</div>
+        <h2 class="font-display" style="font-size:clamp(36px,5vw,52px);font-weight:600;line-height:1.15;color:var(--text);margin-bottom:20px">
+          Mari<br><em style="color:var(--accent)">Kenalan</em>, <Dekat style="color:var(--gold)">Lebih Dekat
+        </h2>
+        <div class="accent-line" style="margin-bottom:20px"></div>
+        <p style="font-size:16px;line-height:1.6;color:var(--text2)">
+          Fresh Graduate S-1 Hukum Ekonomi Syariah dengan IPK 3,80 yang memiliki sertifikasi profesi aktif BNSP Certified Risk Associate (CRA) hingga 2028. Memiliki kombinasi keahlian analitis yang kuat dalam analisis data, data entry, serta kemampuan kreatif dalam desain grafis/visualisasi data. Berkomitmen tinggi untuk menerapkan mitigasi risiko kepatuhan hukum, audit internal, dan tata kelola berbasis data yang efisien.
+        </p>
+      </div>
+
+      <!-- Right: expertise cards -->
+      <div class="reveal" style="display:flex;flex-direction:column;gap:16px">
+
+        <div class="glass hover-lift" style="padding:24px;border-radius:16px;display:flex;gap:16px;align-items:flex-start">
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(124,58,237,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <span class="material-symbols-outlined" style="color:var(--accent)">gavel</span>
+          </div>
+          <div>
+            <h4 style="font-weight:600;color:var(--text);margin-bottom:4px">Hukum Ekonomi Syariah</h4>
+            <p style="font-size:14px;color:var(--text3);line-height:1.6">Pemahaman komprehensif regulasi keuangan Islam, fiqh muamalah, dan aspek hukum perbankan syariah.</p>
+          </div>
+        </div>
+
+        <div class="glass hover-lift" style="padding:24px;border-radius:16px;display:flex;gap:16px;align-items:flex-start">
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(201,162,39,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <span class="material-symbols-outlined" style="color:var(--gold)">shield_with_heart</span>
+          </div>
+          <div>
+            <h4 style="font-weight:600;color:var(--text);margin-bottom:4px">Risk Management Certification BNSP</h4>
+            <p style="font-size:14px;color:var(--text3);line-height:1.6">Pelaksana Manajemen Risiko . .</p>
+            <span class="badge" style="margin-top:8px;display:inline-block">BNSP Certified 2025–2028</span>
+            <div style="margin-top:10px">
+              <a href="https://drive.google.com/file/d/17DWwEHQ8quLIwbel6JTlIacNQfATXfSk/view?usp=sharing" class="btn-outline" style="padding:6px 12px; font-size:12px; display:inline-flex; align-items:center; gap:6px; border-radius:6px">
+                <span class="material-symbols-outlined" style="font-size:16px">workspace_premium</span>
+                Lihat Sertifikat
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass hover-lift" style="padding:24px;border-radius:16px;display:flex;gap:16px;align-items:flex-start">
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(124,58,237,0.10);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <span class="material-symbols-outlined" style="color:var(--accent)">palette</span>
+          </div>
+          <div>
+            <h4 style="font-weight:600;color:var(--text);margin-bottom:4px">Desain & Komunikasi</h4>
+            <p style="font-size:14px;color:var(--text3);line-height:1.6">Keahlian praktis dalam manajemen desain, konten digital, dan identitas digital baik organisasi maupun instansi serta strategi komunikasi visual yang efektif.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 3: ACADEMIC JOURNEY
+═══════════════════════════════════════ -->
+<section id="journey" style="padding:100px 24px;max-width:1200px;margin:0 auto">
+  <div class="reveal" style="text-align:center;margin-bottom:64px">
+    <div class="section-label" style="justify-content:center;margin-bottom:16px">Chronicle of Education</div>
+    <h2 class="font-display" style="font-size:clamp(32px,5vw,52px);font-weight:600;color:var(--text)">Pendidikan</h2>
+  </div>
+
+  <!-- Timeline -->
+  <div style="position:relative;max-width:720px;margin:0 auto">
+    <!-- Vertical line -->
+    <div style="position:absolute;left:24px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--accent),var(--gold),transparent)"></div>
+
+    <!-- AKu pas Kuliah  -->
+    <div class="reveal" style="display:flex;gap:24px;margin-bottom:48px;position:relative">
+      <div class="timeline-dot" style="margin-top:6px"></div>
+      <div class="glass exp-card" style="padding:28px;border-radius:16px;flex:1">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+          <div>
+            <h3 class="font-display" style="font-size:24px;font-weight:600;color:var(--text)">Universitas Nahdlatul Ulama Sunan Giri Bojonegoro</h3>
+            <p style="font-size:14px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-top:2px">2022 – Sekarang</p>
+          </div>
+          <span class="badge">Bachelor</span>
+        </div>
+        <p style="font-size:15px;color:var(--text2);margin-bottom:16px">Hukum Ekonomi Syariah</p>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--accent)">3.85</span>
+          <span style="font-size:13px;color:var(--text3)">Indeks Prestasi Kumulatif</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span class="badge">Awardee of Bank Indoneisa Scholarship 2025</span>
+          <span class="badge">Awardee Bojonegoro District Government Scholarship 2023</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aku pas SMA  -->
+    <div class="reveal" style="display:flex;gap:24px;margin-bottom:48px;position:relative">
+      <div class="timeline-dot" style="margin-top:6px;background:var(--text3);box-shadow:none"></div>
+      <div class="glass exp-card" style="padding:28px;border-radius:16px;flex:1">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+          <div>
+            <h3 class="font-display" style="font-size:22px;font-weight:600;color:var(--text)">SMA Negeri 1 Baureno</h3>
+            <p style="font-size:14px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-top:2px">2019 – 2022</p>
+          </div>
+        </div>
+        <p style="font-size:15px;color:var(--text2)">Matematika dan Ilmu Pengetahuan Alam (MIPA)</p>
+      </div>
+    </div>
+
+    <!-- Aku pas SMP -->
+    <div class="reveal" style="display:flex;gap:24px;position:relative">
+      <div class="timeline-dot" style="margin-top:6px;background:var(--text3);box-shadow:none"></div>
+      <div class="glass exp-card" style="padding:28px;border-radius:16px;flex:1">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+          <div>
+            <h3 class="font-display" style="font-size:22px;font-weight:600;color:var(--text)">SMP Negeri 2 Sumberrejo</h3>
+            <p style="font-size:14px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-top:2px">2016 – 2019</p>
+          </div>
+        </div>
+        <p style="font-size:15px;color:var(--text2)">Pendidikan Menengah Pertama</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 4: SKILLS / CAPABILITIES
+═══════════════════════════════════════ -->
+<section id="skills" style="background:var(--bg2);padding:100px 24px;transition:background 0.5s">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="reveal" style="text-align:center;margin-bottom:64px">
+      <div class="section-label" style="justify-content:center;margin-bottom:16px">Skills</div>
+      <h2 class="font-display" style="font-size:clamp(32px,5vw,52px);font-weight:600;color:var(--text)">Kapabilitas & Tools</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
+
+      <!-- Creative -->
+      <div class="reveal glass hover-lift" style="padding:28px;border-radius:16px;text-align:center">
+        <div style="width:52px;height:52px;border-radius:14px;background:rgba(124,58,237,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
+          <span class="material-symbols-outlined" style="color:var(--accent);font-size:28px">brush</span>
+        </div>
+        <h4 style="font-weight:600;font-size:16px;color:var(--text);margin-bottom:12px">Creative Design</h4>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px">
+          <span class="chip">Figma</span>
+          <span class="chip">Canva</span>
+          <span class="chip">Photoshop</span>
+          <span class="chip">Affinity Design</span>
+        </div>
+      </div>
+
+      <!-- Technical -->
+      <div class="reveal glass hover-lift" style="padding:28px;border-radius:16px;text-align:center">
+        <div style="width:52px;height:52px;border-radius:14px;background:rgba(201,162,39,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
+          <span class="material-symbols-outlined" style="color:var(--gold);font-size:28px">analytics</span>
+        </div>
+        <h4 style="font-weight:600;font-size:16px;color:var(--text);margin-bottom:12px">Technical</h4>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px">
+          <span class="chip">Data Analysis</span>
+          <span class="chip">Data Entry</span>
+          <span class="chip">Microsoft Excel</span>
+          <span class="chip">Microsoft Word</span>
+          <span class="chip">Notion</span>
+        </div>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="reveal glass hover-lift" style="padding:28px;border-radius:16px;text-align:center">
+        <div style="width:52px;height:52px;border-radius:14px;background:rgba(124,58,237,0.10);display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
+          <span class="material-symbols-outlined" style="color:var(--accent);font-size:28px">groups</span>
+        </div>
+        <h4 style="font-weight:600;font-size:16px;color:var(--text);margin-bottom:12px">Soft Skills</h4>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px">
+          <span class="chip">Leadership</span>
+          <span class="chip">Networking</span>
+          <span class="chip">Critical Thinking</span>
+          <span class="chip">Public Speaking</span>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="reveal glass hover-lift" style="padding:28px;border-radius:16px">
+        <div style="width:52px;height:52px;border-radius:14px;background:rgba(201,162,39,0.10);display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
+          <span class="material-symbols-outlined" style="color:var(--gold);font-size:28px">language</span>
+        </div>
+        <h4 style="font-weight:600;font-size:16px;color:var(--text);margin-bottom:20px;text-align:center">Languages</h4>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+              <span style="font-size:13px;color:var(--text2)">Indonesia</span>
+              <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--accent)">Native</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="prog-id" style="width:0%"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+              <span style="font-size:13px;color:var(--text2)">English</span>
+              <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--gold)">Intermediate</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="prog-en" style="width:0%"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+              <span style="font-size:13px;color:var(--text2)">Arabic</span>
+              <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--text3)">Beginner</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="prog-ar" style="width:0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Moving Skills Logo Marquee -->
+    <div class="reveal skills-marquee-container">
+      <div class="skills-marquee-track">
+        
+        <!-- Figma -->
+        <div class="marquee-item">
+          <div class="marquee-icon">
+            <svg viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:21px">
+              <path d="M12 0H6a6 6 0 00-6 6 6 6 0 006 6h6V0z" fill="#F24E1E"/>
+              <path d="M12 12h6a6 6 0 006-6 6 6 0 00-6-6h-6v12z" fill="#FF7262"/>
+              <path d="M12 24H6a6 6 0 00-6 6 6 6 0 006 6c6 0 6-6 6-6V24z" fill="#0ACF83"/>
+              <path d="M0 18a6 6 0 006 6h6V12H6a6 6 0 00-6 6z" fill="#A259FF"/>
+              <path d="M12 12v12a6 6 0 006-6 6 6 0 00-6-6z" fill="#1ABC9C"/>
+            </svg>
+          </div>
+          <span class="marquee-text">Figma</span>
+        </div>
+
+        <!-- Affinity Designer -->
+        <div class="marquee-item">
+          <div class="marquee-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px">
+              <defs>
+                <linearGradient id="affinity-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#00D2FF" />
+                  <stop offset="50%" stop-color="#9B51E0" />
+                  <stop offset="100%" stop-color="#F2C94C" />
+                </linearGradient>
+              </defs>
+              <path d="M12 2L2 20h20L12 2zm0 4.5L19.5 18h-15L12 6.5z" fill="url(#affinity-grad-2)" />
+              <path d="M12 9l5 9H7l5-9z" fill="url(#affinity-grad-2)" opacity="0.8" />
+            </svg>
+          </div>
+          <span class="marquee-text">Affinity Designer</span>
+        </div>
+
+        <!-- Photoshop -->
+        <div class="marquee-item">
+          <div class="marquee-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px">
+              <rect x="1.5" y="1.5" width="21" height="21" rx="4" fill="#001d26" stroke="#00c8ff" stroke-width="1.8"/>
+              <text x="5" y="15.5" fill="#00c8ff" font-family="'Outfit', sans-serif" font-weight="bold" font-size="10.5">Ps</text>
+            </svg>
+          </div>
+          <span class="marquee-text">Photoshop</span>
+        </div>
+
+        <!-- Canva -->
+        <div class="marquee-item">
+          <div class="marquee-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px">
+              <defs>
+                <linearGradient id="canva-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#00C4CC" />
+                  <stop offset="100%" stop-color="#7D2AE8" />
+                </linearGradient>
+              </defs>
+              <circle cx="12" cy="12" r="10.5" fill="url(#canva-grad-2)" />
+              <path d="M15 8.5c-1-.8-2.2-1-3.3-.8-2.2.4-3.7 2.2-3.7 4.3 0 2.2 1.5 4 3.7 4.3 1.1.2 2.3 0 3.3-.8.5-.4.5-1.1.1-1.5-.4-.4-1.1-.4-1.5 0-.6.4-1.2.5-1.9.4-1.2-.2-2-1.2-2-2.4 0-1.2.8-2.2 2-2.4.7-.1 1.3 0 1.9.4.4.3 1.1.3 1.5-.1.4-.4.4-1.1-.2-1.5z" fill="#fff" />
+            </svg>
+          </div>
+          <span class="marquee-text">Canva</span>
+        </div>
+
+        <!-- Microsoft Excel -->
+        <div class="marquee-item">
+          <div class="marquee-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px">
+              <rect x="2" y="3" width="20" height="18" rx="2" fill="#107c41" />
+              <path d="M11 6h8v12h-8V6z" fill="#fff" opacity="0.2" />
+              <path d="M12 7.5h6v9h-6v-9z" fill="#fff" opacity="0.3" />
+              <path d="M2.5 5.5l7-2.5v18l-7-2.5V5.5z" fill="#0f6233" />
+              <text x="4" y="15.5" fill="#fff" font-family="'Outfit', sans-serif" font-weight="bold" font-size="11">X</text>
+            </svg>
+          </div>
+          <span class="marquee-text">Microsoft Excel</span>
+        </div>
+
+        <!-- Microsoft Word -->
+        <div class="marquee-item">
+          <div class="marquee-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px">
+              <rect x="2" y="3" width="20" height="18" rx="2" fill="#185abd" />
+              <path d="M11 6h8v12h-8V6z" fill="#fff" opacity="0.2" />
+              <path d="M12 7.5h6v9h-6v-9z" fill="#fff" opacity="0.3" />
+              <path d="M2.5 5.5l7-2.5v18l-7-2.5V5.5z" fill="#104a9e" />
+              <text x="3.5" y="15.5" fill="#fff" font-family="'Outfit', sans-serif" font-weight="bold" font-size="10">W</text>
+            </svg>
+          </div>
+          <span class="marquee-text">Microsoft Word</span>
+        </div>
+
+        <!-- Notion -->
+        <div class="marquee-item">
+          <div class="marquee-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px">
+              <rect x="2" y="2" width="20" height="20" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.8"/>
+              <path d="M6 6h2.5l5 7.5V6H16v12h-2.5l-5-7.5V18H6V6z" fill="#000000" />
+            </svg>
+          </div>
+          <span class="marquee-text">Notion</span>
+        </div>
+
+        <!-- DUPLICATED FOR INFINITE SCROLL -->
+        <!-- Figma -->
+        <div class="marquee-item">
+          <div class="marquee-icon">
+            <svg viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:21px">
+              <path d="M12 0H6a6 6 0 00-6 6 6 6 0 006 6h6V0z" fill="#F24E1E"/>
+              <path d="M12 12h6a6 6 0 006-6 6 6 0 00-6-6h-6v12z" fill="#FF7262"/>
+              <path d="M12 24H6a6 6 0 00-6 6 6 6 0 006 6c6 0 6-6 6-6V24z" fill="#0ACF83"/>
+              <path d="M0 18a6 6 0 006 6h6V12H6a6 6 0 00-6 6z" fill="#A259FF"/>
+              <path d="M12 12v12a6 6 0 006-6 6 6 0 00-6-6z" fill="#1ABC9C"/>
+            </svg>
+          </div>
+          <span class="marquee-text">Figma</span>
+        </div>
+
+        <!-- Affinity Designer -->
+        <div class="marquee-item">
+          <div class="marquee-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px">
+              <path d="M12 2L2 20h20L12 2zm0 4.5L19.5 18h-15L12 6.5z" fill="url(#affinity-grad-2)" />
+              <path d="M12 9l5 9H7l5-9z" fill="url(#affinity-grad-2)" opacity="0.8" />
+            </svg>
+          </div>
+          <span class="marquee-text">Affinity Designer</span>
+        </div>
+
+        <!-- Photoshop -->
+        <div class="marquee-item">
+          <div class="marquee-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px">
+              <rect x="1.5" y="1.5" width="21" height="21" rx="4" fill="#001d26" stroke="#00c8ff" stroke-width="1.8"/>
+              <text x="5" y="15.5" fill="#00c8ff" font-family="'Outfit', sans-serif" font-weight="bold" font-size="10.5">Ps</text>
+            </svg>
+          </div>
+          <span class="marquee-text">Photoshop</span>
+        </div>
+
+        <!-- Canva -->
+        <div class="marquee-item">
+          <div class="marquee-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px">
+              <circle cx="12" cy="12" r="10.5" fill="url(#canva-grad-2)" />
+              <path d="M15 8.5c-1-.8-2.2-1-3.3-.8-2.2.4-3.7 2.2-3.7 4.3 0 2.2 1.5 4 3.7 4.3 1.1.2 2.3 0 3.3-.8.5-.4.5-1.1.1-1.5-.4-.4-1.1-.4-1.5 0-.6.4-1.2.5-1.9.4-1.2-.2-2-1.2-2-2.4 0-1.2.8-2.2 2-2.4.7-.1 1.3 0 1.9.4.4.3 1.1.3 1.5-.1.4-.4.4-1.1-.2-1.5z" fill="#fff" />
+            </svg>
+          </div>
+          <span class="marquee-text">Canva</span>
+        </div>
+
+        <!-- Microsoft Excel -->
+        <div class="marquee-item">
+          <div class="marquee-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px">
+              <rect x="2" y="3" width="20" height="18" rx="2" fill="#107c41" />
+              <path d="M11 6h8v12h-8V6z" fill="#fff" opacity="0.2" />
+              <path d="M12 7.5h6v9h-6v-9z" fill="#fff" opacity="0.3" />
+              <path d="M2.5 5.5l7-2.5v18l-7-2.5V5.5z" fill="#0f6233" />
+              <text x="4" y="15.5" fill="#fff" font-family="'Outfit', sans-serif" font-weight="bold" font-size="11">X</text>
+            </svg>
+          </div>
+          <span class="marquee-text">Microsoft Excel</span>
+        </div>
+
+        <!-- Microsoft Word -->
+        <div class="marquee-item">
+          <div class="marquee-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px">
+              <rect x="2" y="3" width="20" height="18" rx="2" fill="#185abd" />
+              <path d="M11 6h8v12h-8V6z" fill="#fff" opacity="0.2" />
+              <path d="M12 7.5h6v9h-6v-9z" fill="#fff" opacity="0.3" />
+              <path d="M2.5 5.5l7-2.5v18l-7-2.5V5.5z" fill="#104a9e" />
+              <text x="3.5" y="15.5" fill="#fff" font-family="'Outfit', sans-serif" font-weight="bold" font-size="10">W</text>
+            </svg>
+          </div>
+          <span class="marquee-text">Microsoft Word</span>
+        </div>
+
+        <!-- Notion -->
+        <div class="marquee-item">
+          <div class="marquee-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px">
+              <rect x="2" y="2" width="20" height="20" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.8"/>
+              <path d="M6 6h2.5l5 7.5V6H16v12h-2.5l-5-7.5V18H6V6z" fill="#000000" />
+            </svg>
+          </div>
+          <span class="marquee-text">Notion</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 5: EXPERIENCE & ACTIVITY
+═══════════════════════════════════════ -->
+<section id="projects" style="padding:100px 24px;max-width:1200px;margin:0 auto">
+  <div class="reveal" style="text-align:center;margin-bottom:64px">
+    <div class="section-label" style="justify-content:center;margin-bottom:16px">Experience</div>
+    <h2 class="font-display" style="font-size:clamp(32px,5vw,52px);font-weight:600;color:var(--text)">Pengalaman & Portofolio</h2>
+  </div>
+
+  <!-- Sub-section 1: Pengalaman Profesional -->
+  <div class="reveal" style="margin-bottom:48px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px">
+      <div style="width:4px;height:24px;background:linear-gradient(to bottom,var(--accent),var(--gold));border-radius:2px"></div>
+      <h3 class="font-display" style="font-size:24px;font-weight:600;color:var(--text)">Pengalaman Profesional</h3>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+      
+      <!-- Exp 1 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="height:180px;overflow:hidden;position:relative">
+          <img src="/Users/faizal/Documents/porto new 2/images/Pembukaan magang bersama DPL-resized-to-medium.jpeg"
+            alt="Risk Analysis" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;opacity:0.7" class="exp-img"/>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div class="badge" style="margin-bottom:12px;display:inline-block">Internship April - Mei 2025</div>
+            <h3 style="font-weight:600;font-size:17px;color:var(--text);margin-bottom:6px">Surveyor & Marketing Promotion BMT Mandiri Sejahtera Baureno</h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">Risk Analysis & Education</p>
+            <p style="font-size:14px;color:var(--text2);line-height:1.6">Analisis risiko 5C untuk kepatuhan syariah dan pengembangan strategi edukasi literasi keuangan syariah.</p>
+          </div>
+          <div style="margin-top:20px">
+            <a href="/Users/faizal/Documents/porto new 2/dokumen/Sertifikat Magang BMT Mandiri Sejahtera.pdf" class="btn-primary" style="padding:8px 16px; font-size:13px; display:inline-flex; align-items:center; gap:6px;">
+              <span class="material-symbols-outlined" style="font-size:16px">download</span>
+              Unduh Sertifikat
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exp 2 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="height:180px;overflow:hidden;position:relative">
+          <img src="/Users/faizal/Documents/porto new 2/images/WhatsApp Image 2026-06-06 at 10.59.30 PM.jpeg"
+            alt="Risk Analysis" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;opacity:0.7" class="exp-img"/>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div class="badge" style="margin-bottom:12px;display:inline-block">Contract November 2024</div>
+            <h3 style="font-weight:600;font-size:17px;color:var(--text);margin-bottom:6px">Surveyor & Online Data Entry</h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">Quick Qount Populi Center</p>
+            <p style="font-size:14px;color:var(--text2);line-height:1.6">Bertanggung jawab atas entri, verifikasi, dan analisis data awal form C1 dari berbagai TPS dengan akurasi mendekati 100%. Melakukan validasi konsistensi data sebelum diunggah ke sistem pusat, serta mengelola risiko untuk meminimalisir *human error* di bawah tekanan waktu.</p>
+          </div>
+          <div style="margin-top:20px">
+            <a href="#" class="btn-primary" style="padding:8px 16px; font-size:13px; display:inline-flex; align-items:center; gap:6px;">
+              <span class="material-symbols-outlined" style="font-size:16px">download</span>
+              Unduh Sertifikat
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exp 3 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="height:180px;overflow:hidden;position:relative">
+          <img src="/Users/faizal/Documents/porto new 2/images/WhatsApp Image 2026-05-28 at 8.37.27 PM.jpeg"
+            alt="Data Entry" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;opacity:0.7" class="exp-img"/>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div class="badge" style="margin-bottom:12px;display:inline-block">Event Organizer/Event Crew</div>
+            <h3 style="font-weight:600;font-size:17px;color:var(--text);margin-bottom:6px">Staff Data Entry & Data Validator</h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">Pasar Sembako Tebus Murah Pertamina</p>
+            <p style="font-size:14px;color:var(--text2);line-height:1.6">Memasukkan data pengambil sembako tebus murah ke dalam database, sekaligus memeriksa, membersihkan, dan memastikan keakuratan dengan data penerima sembako tebus murah dari pertamina.</p>
+          </div>
+          <div style="margin-top:20px">
+            <a href="https://www.instagram.com/p/DXHKBwJkoyo/?igsh=YzMxYTJ0YnlpY2Vj" class="btn-outline" style="padding:8px 16px; font-size:13px; display:inline-flex; align-items:center; gap:6px;">
+              <span class="material-symbols-outlined" style="font-size:16px">info</span>
+              Lihat Detail
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exp 4 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="height:180px;overflow:hidden;position:relative">
+          <img src="/Users/faizal/Documents/porto new 2/images/snc 1-resized-to-medium.jpeg"
+            alt="Content Manager" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;opacity:0.7" class="exp-img"/>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div class="badge" style="margin-bottom:12px;display:inline-block">Sosial Media Specialist</div>
+            <h3 style="font-weight:600;font-size:17px;color:var(--text);margin-bottom:6px">Designer & Content Manager</h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">Sharabic National Championship 2026 Fakultas Syariah dan Adab Unugiri</p>
+            <p style="font-size:14px;color:var(--text2);line-height:1.6">Merencanakan konten, menyusun narasi promosi (copywriting) untuk berbagai cabang lomba, serta memproduksi seluruh aset visual digital maupun cetak seperti feed media sosial, banner panggung, dan backdrop videotrone guna memastikan informasi tersampaikan secara kreatif, konsisten, dan profesional kepada publik.</p>
+          </div>
+          <div style="margin-top:20px">
+            <a href="https://www.instagram.com/snc_2026?utm_source=qr" class="btn-outline" style="padding:8px 16px; font-size:13px; display:inline-flex; align-items:center; gap:6px;">
+              <span class="material-symbols-outlined" style="font-size:16px">info</span>
+              Lihat Projects
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider" style="margin: 48px 0;"></div>
+
+  <!-- Sub-section 2: Pengalaman Organisasi -->
+  <div class="reveal">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px">
+      <div style="width:4px;height:24px;background:linear-gradient(to bottom,var(--accent),var(--gold));border-radius:2px"></div>
+      <h3 class="font-display" style="font-size:24px;font-weight:600;color:var(--text)">Pengalaman Organisasi</h3>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+      
+      <!-- Exp 4 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="height:180px;overflow:hidden;position:relative">
+          <img src="/Users/faizal/Documents/porto new 2/images/bem fotbar2-resized-to-medium.jpeg"
+            alt="Design Leader" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;opacity:0.7" class="exp-img"/>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div class="badge" style="margin-bottom:12px;display:inline-block">Design Leadership</div>
+            <h3 style="font-weight:600;font-size:17px;color:var(--text);margin-bottom:6px">Koordinator Desain / Kominfo</h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">Kominfo - BEM Fakultas Syariah dan Adab</p>
+            <p style="font-size:14px;color:var(--text2);line-height:1.6">Memimpin siklus produksi desain dan mengelola branding media sosial komprehensif untuk identitas organisasi.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exp 5 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="height:180px;overflow:hidden;position:relative">
+          <img src="/Users/faizal/Documents/porto new 2/images/DSC00859-resized-to-medium.jpeg"
+            alt="Digital Content" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;opacity:0.7" class="exp-img"/>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div class="badge" style="margin-bottom:12px;display:inline-block">Digital Content</div>
+            <h3 style="font-weight:600;font-size:17px;color:var(--text);margin-bottom:6px">Devisi Media & Informasi</h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">GenBI Unugiri Bojonegoro (2025)</p>
+            <p style="font-size:14px;color:var(--text2);line-height:1.6">Pengembangan konten strategis untuk program literasi keuangan BI dan pengelolaan alur informasi organisasi.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exp 6 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="height:180px;overflow:hidden;position:relative">
+          <img src="/Users/faizal/Documents/porto new 2/images/hmp-resized-to-medium.jpeg"
+            alt="Team Management" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;opacity:0.7" class="exp-img"/>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div class="badge" style="margin-bottom:12px;display:inline-block">Team Management</div>
+            <h3 style="font-weight:600;font-size:17px;color:var(--text);margin-bottom:6px">Koordinator Jarkominfo</h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">Creative Design Team Lead Himpunan Mahasiswa Prodi Hukum Ekonomi Syariah (2024)</p>
+            <p style="font-size:14px;color:var(--text2);line-height:1.6">Mengawasi tim desain kreatif untuk menyampaikan strategi komunikasi terintegrasi di berbagai platform digital.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 5.5: PORTFOLIO SHOWCASE
+═══════════════════════════════════════ -->
+<section id="portfolio" style="background:var(--bg2);padding:80px 24px 100px;transition:background 0.5s">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="reveal" style="text-align:center;margin-bottom:32px">
+      <div class="section-label" style="justify-content:center;margin-bottom:16px">My Portfolio</div>
+      <h2 class="font-display" style="font-size:clamp(32px,5vw,52px);font-weight:600;color:var(--text)">Portofolio Showcase</h2>
+      <div class="accent-line" style="margin: 20px auto 0"></div>
+    </div>
+
+    <!-- Data Entry & Analisis Projects -->
+    <div class="reveal" style="margin-bottom:48px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px">
+        <div style="width:4px;height:24px;background:linear-gradient(to bottom,var(--accent),var(--gold));border-radius:2px"></div>
+        <h3 class="font-display" style="font-size:24px;font-weight:600;color:var(--text)">Data Entry & Analisis</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+      
+      <!-- Data Entry Proj 1 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="padding:28px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+              <span class="badge">Spreadsheet</span>
+              <span class="material-symbols-outlined" style="color:var(--accent);font-size:24px">table_rows</span>
+            </div>
+            <h3 style="font-weight:600;font-size:18px;color:var(--text);margin-bottom:8px">Rekapitulasi & Kepatuhan Keuangan</h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">Intership BMT Mandiri Sejahtera</p>
+            <p style="font-size:14px;color:var(--text2);line-height:1.6">Pengolahan, pembersihan data nasabah, dan kepatuhan akad syariah nasabah yang mengajukan pembiayaan secara terstruktur dan teratur untuk analisis risiko pembiayaan.</p>
+          </div>
+          <div style="margin-top:24px;display:flex;gap:12px">
+            <span class="chip">Data Entry</span>
+            <span class="chip">Risk Assessment</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Entry Proj 2 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="padding:28px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+              <span class="badge">Verification</span>
+              <span class="material-symbols-outlined" style="color:var(--gold);font-size:24px">fact_check</span>
+            </div>
+            <h3 style="font-weight:600;font-size:18px;color:var(--text);margin-bottom:8px">Data Entry & Validasi Data Penerima</h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">Sembako Tebus Murah Pertamina</p>
+            <p style="font-size:14px;color:var(--text2);line-height:1.6">Validasi dan pencocokan data penerima sembako tebus murah guna mengeliminasi data duplikat dan menjamin akurasi distribusi program CSR Pertamina.</p>
+          </div>
+          <div style="margin-top:24px;display:flex;gap:12px">
+            <span class="chip">Microsoft Exel</span>
+            <span class="chip">Validation</span>
+            <span class="chip">Database</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Entry Proj 3 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="padding:28px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+              <span class="badge">Data Entry Specialist</span>
+              <span class="material-symbols-outlined" style="color:var(--accent);font-size:24px">fact_check</span>
+            </div>
+            <h3 style="font-weight:600;font-size:18px;color:var(--text);margin-bottom:8px">Data Entry & Verification for BPPNDGS</h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">Administrative Assistant TPQ Nurul HIdayah</p>
+            <p style="font-size:14px;color:var(--text2);line-height:1.6">Menginput, Mengelola, dan memvalidasi data BPPNDGS (Bantuan Operasional Daerah / Pusat) ke Dinas terkait untuk memastikan akurasi data penerima bantuan..</p>
+          </div>
+          <div style="margin-top:24px;display:flex;gap:12px">
+            <span class="chip">Microsoft Exel</span>
+            <span class="chip">VLOOKUP</span>
+            <span class="chip">Validation</span>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+
+    <div class="divider" style="margin: 48px 0;"></div>
+
+    <!-- Desain Grafis Projects -->
+    <div class="reveal">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px">
+        <div style="width:4px;height:24px;background:linear-gradient(to bottom,var(--accent),var(--gold));border-radius:2px"></div>
+        <h3 class="font-display" style="font-size:24px;font-weight:600;color:var(--text)">Desain Grafis</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+      
+      <!-- Design Proj 1 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="height:180px;overflow:hidden;position:relative">
+          <img src="/Users/faizal/Documents/porto new 2/images/snc 1-resized-to-medium.jpeg"
+            alt="Sharabic National Championship Design" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;opacity:0.7" class="exp-img"/>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div class="badge" style="margin-bottom:12px;display:inline-block">Event Branding</div>
+            <h3 style="font-weight:600;font-size:18px;color:var(--text);margin-bottom:6px">Desain Logo & Motiongraphich</h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">Sharabic National Championship 2026</p>
+          </div>
+          <div style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap">
+            <span class="chip">Figma</span>
+            <span class="chip">Affinity Design</span>
+            <span class="chip">Alight Motion</span>
+          </div>
+          <div style="margin-top:20px">
+            <a href="https://www.instagram.com/reel/DUgHbgCADEf/?igsh=eXlkcDF1YzZ1YmJy" class="btn-outline" style="padding:8px 16px; font-size:13px; display:inline-flex; align-items:center; gap:6px;">
+              <span class="material-symbols-outlined" style="font-size:16px">info</span>
+              Lihat Detail
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design Proj 2 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="height:180px;overflow:hidden;position:relative">
+          <img src="/Users/faizal/Documents/porto new 2/images/row-1-column-3 copy.webp"
+            alt="BEM Branding" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;opacity:0.7" class="exp-img"/>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div class="badge" style="margin-bottom:12px;display:inline-block">Flayer / Pamflet</div>
+            <h3 style="font-weight:600;font-size:18px;color:var(--text);margin-bottom:6px">Pamflet Lomba Debat SNC 2026</h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">Sharabic National Championship 2026</p>
+          </div>
+          <div style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap">
+            <span class="chip">Figma</span>
+            <span class="chip">Pintereest</span>
+            <span class="chip">Instagram Feed</span>
+          </div>
+          <div style="margin-top:20px">
+            <a href="https://www.instagram.com/p/DUldqjekpEv/?igsh=NmJqOGhmNjc2MjAy" class="btn-outline" style="padding:8px 16px; font-size:13px; display:inline-flex; align-items:center; gap:6px;">
+              <span class="material-symbols-outlined" style="font-size:16px">info</span>
+              Lihat Detail
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design Proj 3 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="height:180px;overflow:hidden;position:relative">
+          <img src="/Users/faizal/Documents/porto new 2/images/Screenshot 2026-06-07 at 12.46.26 AM.webp"
+            alt="HMP HES Design" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;opacity:0.7" class="exp-img"/>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div class="badge" style="margin-bottom:12px;display:inline-block">Grapich Desain</div>
+            <h3 style="font-weight:600;font-size:18px;color:var(--text);margin-bottom:6px">Desain Banner Event SNC 2026</h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">Sharabic National Championship 2026</p>
+            <span class="chip">Figma</span>
+            <span class="chip">Pinterest</span>
+          </div>
+          <div style="margin-top:20px">
+            <a href="https://drive.google.com/file/d/1cRSensJ37J5YVwyUsx-5bDssEQ1YC713/view?usp=sharing" class="btn-outline" style="padding:8px 16px; font-size:13px; display:inline-flex; align-items:center; gap:6px;">
+              <span class="material-symbols-outlined" style="font-size:16px">info</span>
+              Lihat Detail</a>
+          </div>
+        </div>
+      </div>
+      <!-- Design Proj 4 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="height:180px;overflow:hidden;position:relative">
+          <img src="/Users/faizal/Documents/porto new 2/images/day 3.webp"
+            alt="HMP HES Design" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;opacity:0.7" class="exp-img"/>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div class="badge" style="margin-bottom:12px;display:inline-block">Grapich Desain</div>
+            <h3 style="font-weight:600;font-size:18px;color:var(--text);margin-bottom:6px">Coursel Dokumantasi Event SNC 2026</h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">Sharabic National Championship 2026</p>
+            <span class="chip">Figma</span>
+            <span class="chip">Pinterest</span>
+            <span class="chip">Canva</span>
+          </div>
+          <div style="margin-top:20px">
+            <a href="https://www.instagram.com/p/DZASkk5k3l6/?igsh=MW5xdW5jMzE5eGF0aA==" class="btn-outline" style="padding:8px 16px; font-size:13px; display:inline-flex; align-items:center; gap:6px;">
+              <span class="material-symbols-outlined" style="font-size:16px">info</span>
+              Lihat Detail</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design Proj 5 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="height:180px;overflow:hidden;position:relative">
+          <img src="/Users/faizal/Documents/porto new 2/images/Screenshot 2026-06-07 at 1.06.37 AM.png"
+            alt="HMP HES Design" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;opacity:0.7" class="exp-img"/>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div class="badge" style="margin-bottom:12px;display:inline-block">Grapich Desain</div>
+            <h3 style="font-weight:600;font-size:18px;color:var(--text);margin-bottom:6px">Backdrop & Videotrone Seminar Literasi Cash Management</h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">Aniversary GenBI 2025</p>
+            <span class="chip">Figma</span>
+            <span class="chip">CapCut</span>
+            <span class="chip">Canva</span>
+          </div>
+          <div style="margin-top:20px">
+            <a href="https://drive.google.com/file/d/1dk38q9sVTXsRG6P13ETX1f4Yk5eSeKJv/view?usp=share_link" class="btn-outline" style="padding:8px 16px; font-size:13px; display:inline-flex; align-items:center; gap:6px;">
+              <span class="material-symbols-outlined" style="font-size:16px">info</span>
+              Lihat Detail</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design Proj 6 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="height:180px;overflow:hidden;position:relative">
+          <img src="/Users/faizal/Documents/porto new 2/images/Screenshot 2026-06-07 at 1.06.16 AM.png"
+            alt="HMP HES Design" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;opacity:0.7" class="exp-img"/>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div class="badge" style="margin-bottom:12px;display:inline-block">Grapich Desain</div>
+            <h3 style="font-weight:600;font-size:18px;color:var(--text);margin-bottom:6px">Backdrop & Videotrone Seminar Digital Branding </h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">Aniversary GenBI 2025</p>
+            <span class="chip">Figma</span>
+            <span class="chip">CapCut</span>
+            <span class="chip">Canva</span>
+          </div>
+          <div style="margin-top:20px">
+            <a href="https://drive.google.com/file/d/1emzDDbKVvD6jZmYf8xUomsUh8cAx7p9-/view?usp=share_link" class="btn-outline" style="padding:8px 16px; font-size:13px; display:inline-flex; align-items:center; gap:6px;">
+              <span class="material-symbols-outlined" style="font-size:16px">info</span>
+              Lihat Detail</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design Proj 7 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="height:180px;overflow:hidden;position:relative">
+          <img src="/Users/faizal/Documents/porto new 2/images/bg seminar.png"
+            alt="HMP HES Design" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;opacity:0.7" class="exp-img"/>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div class="badge" style="margin-bottom:12px;display:inline-block">Grapich Desain</div>
+            <h3 style="font-weight:600;font-size:18px;color:var(--text);margin-bottom:6px">Backdrop & Videotrone Seminar Pelecehan Seksual dan Bias Gender </h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">Seminar Nasional</p>
+            <span class="chip">Figma</span>
+            <span class="chip">CapCut</span>
+            <span class="chip">Canva</span>
+          </div>
+          <div style="margin-top:20px">
+            <a href="https://drive.google.com/file/d/1NkNU2WG1C94wlI6uZ3H_CjKkrEk8s2op/view?usp=share_link" class="btn-outline" style="padding:8px 16px; font-size:13px; display:inline-flex; align-items:center; gap:6px;">
+              <span class="material-symbols-outlined" style="font-size:16px">info</span>
+              Lihat Detail</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design Proj 8 -->
+      <div class="reveal glass exp-card" style="border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="height:180px;overflow:hidden;position:relative">
+          <img src="/Users/faizal/Documents/porto new 2/images/WhatsApp Image 2026-06-07 at 1.19.40 AM.jpeg"
+            alt="HMP HES Design" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s;opacity:0.7" class="exp-img"/>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;flex:1;justify-content:space-between">
+          <div>
+            <div class="badge" style="margin-bottom:12px;display:inline-block">Flayer / Pamflet</div>
+            <h3 style="font-weight:600;font-size:18px;color:var(--text);margin-bottom:6px">Pamflet Event LKMTD </h3>
+            <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-family:'JetBrains Mono',monospace">BEM Fakultas Syariah dan Adab</p>
+            <span class="chip">Figma</span>
+          </div>
+          <div style="margin-top:20px">
+            <a href="https://www.instagram.com/p/DS3fCo0knfU/?igsh=MWQ2eHcwZWk3ZnhubA==" class="btn-outline" style="padding:8px 16px; font-size:13px; display:inline-flex; align-items:center; gap:6px;">
+              <span class="material-symbols-outlined" style="font-size:16px">info</span>
+              Lihat Detail</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 6: CONTACT
+═══════════════════════════════════════ -->
+<section id="contact" style="background:var(--bg2);padding:100px 24px;transition:background 0.5s">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="divider" style="margin-bottom:64px"></div>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:48px;align-items:start" class="md-grid-2">
+
+      <!-- Left info -->
+      <div class="reveal">
+        <div class="section-label" style="margin-bottom:20px">Get In Touch</div>
+        <h2 class="font-display" style="font-size:clamp(32px,5vw,52px);font-weight:600;line-height:1.2;color:var(--text);margin-bottom:20px">
+          Mari Kita<br><em style="color:var(--accent)">Berkolaborasi</em>
+        </h2>
+        <p style="font-size:16px;line-height:1.8;color:var(--text2);margin-bottom:32px">
+          Siap untuk berkolaborasi dalam proyek Hukum Ekonomi Syariah, Konsultasi Risiko, atau Kebutuhan Desain Komunikasi.
+        </p>
+
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <a href="https://wa.me/+62881036510232" class="glass hover-lift" style="padding:16px 20px;border-radius:14px;display:flex;align-items:center;gap:16px;text-decoration:none;transition:transform 0.3s">
+            <div style="width:44px;height:44px;border-radius:12px;background:rgba(124,58,237,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <span class="material-symbols-outlined" style="color:var(--accent)">chat</span>
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;margin-bottom:2px">WHATSAPP</div>
+              <div style="font-size:14px;font-weight:600;color:var(--text)">Kirim Pesan Langsung</div>
+            </div>
+            <span class="material-symbols-outlined" style="color:var(--text3);font-size:18px;margin-left:auto">arrow_forward</span>
+          </a>
+
+          <a href="https://linkedin.com/in/faiz-al-amirin" class="glass hover-lift" style="padding:16px 20px;border-radius:14px;display:flex;align-items:center;gap:16px;text-decoration:none;transition:transform 0.3s">
+            <div style="width:44px;height:44px;border-radius:12px;background:rgba(201,162,39,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <span class="material-symbols-outlined" style="color:var(--gold)">work</span>
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;margin-bottom:2px">LINKEDIN</div>
+              <div style="font-size:14px;font-weight:600;color:var(--text)">Faiz Al Amirin</div>
+            </div>
+            <span class="material-symbols-outlined" style="color:var(--text3);font-size:18px;margin-left:auto">arrow_forward</span>
+          </a>
+
+          <a href="mailto:faizalamirin1324@gmail.com" class="glass hover-lift" style="padding:16px 20px;border-radius:14px;display:flex;align-items:center;gap:16px;text-decoration:none;transition:transform 0.3s">
+            <div style="width:44px;height:44px;border-radius:12px;background:rgba(124,58,237,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <span class="material-symbols-outlined" style="color:var(--accent)">mail</span>
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;margin-bottom:2px">EMAIL</div>
+              <div style="font-size:14px;font-weight:600;color:var(--text)">faizalamirin1324@gmail.com</div>
+            </div>
+            <span class="material-symbols-outlined" style="color:var(--text3);font-size:18px;margin-left:auto">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right form -->
+      <div class="reveal glass" style="padding:32px;border-radius:20px">
+        <h3 style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:24px">Kirim Pesan</h3>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div>
+            <label style="font-size:12px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;display:block;margin-bottom:8px">NAMA LENGKAP</label>
+            <input class="contact-input" type="text" placeholder="Masukkan nama Anda"/>
+          </div>
+          <div>
+            <label style="font-size:12px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;display:block;margin-bottom:8px">ALAMAT EMAIL</label>
+            <input class="contact-input" type="email" placeholder="nama@email.com"/>
+          </div>
+          <div>
+            <label style="font-size:12px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;display:block;margin-bottom:8px">PESAN</label>
+            <textarea class="contact-input" rows="5" placeholder="Tuliskan pesan Anda di sini..." style="resize:vertical"></textarea>
+          </div>
+          <button onclick="handleSubmit(this)" class="btn-primary" style="justify-content:center;border:none;cursor:pointer;width:100%">
+            <span class="material-symbols-outlined" style="font-size:18px">send</span>
+            Kirim Pesan
+          </button>
+          <div id="form-success" style="display:none;text-align:center;color:var(--accent);font-size:14px;padding:8px">
+            ✓ Pesan terkirim! Kami akan segera menghubungi Anda.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer style="background:var(--surface);border-top:1px solid var(--border);padding:40px 24px;transition:background 0.5s">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px">
+    <div>
+      <div class="font-display" style="font-size:22px;font-weight:600;color:var(--text);letter-spacing:0.1em">FAIZ AL AMIRIN</div>
+    </div>
+    <p style="font-size:13px;color:var(--text3);text-align:center">© 2026 Faiz Al Amirin. All rights reserved.</p>
+    <div style="display:flex;gap:20px">
+      <a href="mailto:faizalamirin1324@gmail.com" class="nav-link">Mail</a>
+      <a href="https://linkedin.com/in/faiz-al-amirin" class="nav-link">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="script.js" defer></script>
+
+</body>
+</html>
