@@ -164,8 +164,21 @@ nav {
   background: transparent;
 }
 
-/* Brand logo signature/relaxed font styles */
+/* Brand logo container with smooth scale on hover */
 .brand-logo {
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.brand-logo:hover {
+  transform: scale(1.08) translateY(-2px);
+}
+
+/* Brand logo signature/relaxed font styles with text-shimmer and float animations */
+.brand-logo .logo-text {
+  display: inline-block;
   color: var(--text);
   font-family: 'Caveat', cursive; /* Gaya 1: Signature/Cursive (Default) */
   font-size: 32px;
@@ -177,19 +190,48 @@ nav {
   /* letter-spacing: -0.01em; */
 
   font-weight: 700;
-  text-decoration: none;
-  transition: color 0.3s, transform 0.3s;
-  display: inline-block;
-  line-height: 1;
+  
+  /* Modern text-shimmer gradient setup using theme tokens */
+  background: linear-gradient(
+    120deg,
+    var(--accent) 0%,
+    var(--gold) 25%,
+    var(--text) 50%,
+    var(--gold) 75%,
+    var(--accent) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  
+  /* Infinite looping animations */
+  animation: logo-shimmer 6s linear infinite, logo-float 4s ease-in-out infinite;
+  transition: filter 0.3s;
 }
 
-.brand-logo:hover {
-  color: var(--accent);
-  transform: translateY(-1px);
+/* Interactive hover effects on the logo text */
+.brand-logo:hover .logo-text {
+  filter: drop-shadow(0 0 8px var(--glow)) brightness(1.2);
 }
 
-[data-theme="light"] .brand-logo:hover {
-  color: var(--gold);
+@keyframes logo-shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes logo-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(1.5deg);
+  }
 }
 
 /* Nav links */
@@ -780,3 +822,224 @@ nav {
     transform: translateX(-50%);
   }
 }
+
+/* ───────────────────────────────────────────────────────────────
+   22. PORTFOLIO DESIGN GRAFIS SPECIAL LAYOUT
+   ─────────────────────────────────────────────────────────────── */
+
+.design-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.design-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(.4, 0, .2, 1), box-shadow 0.4s;
+}
+
+.design-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.40);
+}
+
+.design-card-img-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.design-card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s;
+  opacity: 0.7;
+}
+
+.design-card:hover .design-card-img-wrapper img {
+  transform: scale(1.08);
+}
+
+.design-card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .design-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .design-card {
+    flex-direction: row !important;
+    height: 260px !important;
+  }
+  
+  /* Left column cards (odd-indexed items: 1st, 3rd, 5th, 7th in HTML grid)
+     Image goes to the right, description goes to the left */
+  .design-card:nth-child(odd) {
+    flex-direction: row-reverse !important;
+  }
+  
+  /* Right column cards (even-indexed items: 2nd, 4th, 6th, 8th in HTML grid)
+     Image goes to the left, description goes to the right */
+  .design-card:nth-child(even) {
+    flex-direction: row !important;
+  }
+
+  .design-card-img-wrapper {
+    height: 100% !important;
+    width: auto !important;
+    aspect-ratio: 1 / 1 !important;
+  }
+  
+  .design-card-content {
+    flex: 1 !important;
+    width: auto !important;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────
+   23. PORTFOLIO CARD SLIDER
+   ─────────────────────────────────────────────────────────────── */
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.slider-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider-slide {
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
+}
+
+.slider-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s;
+  aspect-ratio: 1 / 1;
+}
+
+/* Navigation Buttons */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(10, 10, 15, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s, background 0.3s, transform 0.3s, color 0.3s;
+  pointer-events: auto;
+  padding: 0;
+  outline: none;
+}
+
+.slider-container:hover .slider-btn {
+  opacity: 1;
+}
+
+.slider-btn:hover {
+  background: var(--accent);
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+  border-color: var(--accent);
+}
+
+[data-theme="light"] .slider-btn {
+  background: rgba(250, 248, 243, 0.7);
+}
+
+[data-theme="light"] .slider-btn:hover {
+  background: var(--gold);
+  color: #ffffff;
+  border-color: var(--gold);
+}
+
+.prev-btn {
+  left: 12px;
+}
+
+.next-btn {
+  right: 12px;
+}
+
+/* Slide Indicators (Dots) */
+.slider-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.slider-dots .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .slider-dots .dot {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.slider-dots .dot.active {
+  width: 18px;
+  border-radius: 4px;
+  background: var(--accent);
+}
+
+[data-theme="light"] .slider-dots .dot.active {
+  background: var(--gold);
+}
+
+
+

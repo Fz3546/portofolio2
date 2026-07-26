@@ -387,3 +387,60 @@ window.toggleTheme = function () {
   });
 })();
 */
+
+/* ═══════════════════════════════════════════════════════════════
+   8. PORTFOLIO CARD SLIDERS
+   Manages image sliders in portfolio card design-card-img-wrapper
+   ═══════════════════════════════════════════════════════════════ */
+document.addEventListener("DOMContentLoaded", () => {
+  const sliders = document.querySelectorAll(".slider-container");
+  
+  sliders.forEach(slider => {
+    const track = slider.querySelector(".slider-track");
+    const slides = slider.querySelectorAll(".slider-slide");
+    const dots = slider.querySelectorAll(".dot");
+    const prevBtn = slider.querySelector(".prev-btn");
+    const nextBtn = slider.querySelector(".next-btn");
+    
+    if (!track || !slides.length) return;
+    
+    let currentIndex = 0;
+    const maxIndex = slides.length - 1;
+    
+    function updateSlider() {
+      // Move track
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      // Update dots
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentIndex);
+      });
+    }
+    
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        currentIndex = currentIndex === 0 ? maxIndex : currentIndex - 1;
+        updateSlider();
+      });
+      
+      nextBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        currentIndex = currentIndex === maxIndex ? 0 : currentIndex + 1;
+        updateSlider();
+      });
+    }
+    
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        currentIndex = index;
+        updateSlider();
+      });
+    });
+  });
+});
+
