@@ -120,42 +120,19 @@ window.closeMobile  = closeMobile;
     element.innerHTML = newHTML;
   }
 
-  // Prepare label immediately to prevent Cumulative Layout Shift (CLS)
+  // Prepare elements immediately
   prepareTyping(label);
 
-  /**
-   * Animates the typing effect for the given element.
-   */
-  function startTyping(element, speed, callback) {
-    const chars = element.querySelectorAll('.typing-char');
-    let i = 0;
-    
-    // Create cursor element
-    const cursor = document.createElement('span');
-    cursor.className = 'typing-cursor';
-    cursor.innerHTML = '|';
-    element.appendChild(cursor);
-    
-    function type() {
-      if (i < chars.length) {
-        chars[i].style.opacity = '1';
-        chars[i].parentNode.insertBefore(cursor, chars[i].nextSibling);
-        i++;
-        setTimeout(type, speed);
-      } else {
-        // Keep blinking for 0.8s, then remove
-        setTimeout(() => {
-          cursor.style.opacity = '0';
-          setTimeout(() => cursor.remove(), 300);
-          if (callback) callback();
-        }, 800);
-      }
-    }
-    type();
-  }
+  let typingTriggered = false;
 
-  // Expose function globally to be triggered by Scroll Reveal
+  // Expose function globally to be triggered by Scroll Reveal or splash button
   window.triggerTyping = function() {
+    if (typingTriggered) return;
+    
+    // Don't trigger animations if splash screen is still active (scroll-lock active)
+    if (document.body.classList.contains('splash-active')) return;
+    
+    typingTriggered = true;
     const chars = label.querySelectorAll('.typing-char');
     const totalChars = chars.length;
     // Trigger slide-in when typing reaches ~40% through the label text
@@ -198,6 +175,66 @@ window.closeMobile  = closeMobile;
 
     startTypingWithSlide(label, 30);
   };
+
+  // Splash Screen Logic
+  const splash = document.getElementById('landing-splash');
+
+  function initSplash() {
+    if (!splash) return;
+
+    if (sessionStorage.getItem('visited-intro') === 'true') {
+      // User already visited in this session: skip intro
+      splash.style.display = 'none';
+      document.body.classList.remove('splash-active');
+      
+      // Ensure nav is visible immediately
+      const nav = document.querySelector('nav');
+      if (nav) nav.classList.remove('nav-hidden');
+      
+      // Auto-trigger name animation slightly later
+      setTimeout(() => {
+        window.triggerTyping();
+      }, 300);
+    } else {
+      // First visit: lock page and show splash
+      document.body.classList.add('splash-active');
+    }
+  }
+
+  function enterPortfolio() {
+    if (!splash) return;
+
+    // Mark as visited in session
+    sessionStorage.setItem('visited-intro', 'true');
+
+    // Unlock body scroll
+    document.body.classList.remove('splash-active');
+
+    // Fade in and slide down nav bar
+    const nav = document.querySelector('nav');
+    if (nav) nav.classList.remove('nav-hidden');
+
+    // Smooth scroll to the main content (#home)
+    const homeSection = document.getElementById('home');
+    if (homeSection) {
+      homeSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Trigger typing and name animations after scroll starts
+    setTimeout(() => {
+      window.triggerTyping();
+    }, 800);
+  }
+
+  // Bind enterPortfolio to global window context
+  window.enterPortfolio = enterPortfolio;
+
+  // Run splash check on DOM load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSplash);
+  } else {
+    initSplash();
+  }
 })();
 
 
@@ -265,7 +302,9 @@ window.closeMobile  = closeMobile;
   function getCurrentSection() {
     let current = '';
     sections.forEach(section => {
-      const threshold = section.offsetTop - 120;   // 120 px offset for fixed nav
+      // Get absolute offset from top of document to prevent offsetParent issues with relative parents
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      const threshold = sectionTop - 120;   // 120 px offset for fixed nav
       if (window.scrollY >= threshold) {
         current = section.getAttribute('id');
       }
