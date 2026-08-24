@@ -422,6 +422,46 @@ nav.nav-hidden {
   color: var(--gold);
 }
 
+/* Skill logo badge (icon-based, replaces text chips) */
+.skill-logo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.skill-logo-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-logo-badge:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px var(--glow);
+}
+
+[data-theme="light"] .skill-logo-badge:hover {
+  border-color: var(--gold);
+}
+
+.skill-logo-badge .logo-icon {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 
 /* ───────────────────────────────────────────────────────────────
    11. BUTTONS
@@ -596,6 +636,34 @@ nav.nav-hidden {
   background: linear-gradient(90deg, var(--accent), var(--gold));
   width: 0%;                               /* starts at 0 — JS animates to final value */
   transition: width 1.2s cubic-bezier(.4, 0, .2, 1);
+}
+
+/* TOEFL certificate download button (inline, under English progress bar) */
+.toefl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: rgba(201, 162, 39, 0.10);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  color: var(--gold);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.toefl-btn:hover {
+  background: rgba(201, 162, 39, 0.18);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+}
+
+.toefl-btn .material-symbols-outlined {
+  font-size: 13px;
 }
 
 
