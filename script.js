@@ -101,8 +101,10 @@ window.closeMobile  = closeMobile;
   if (!label) return;
 
   /**
-   * Wraps all plain text characters in spans with opacity 0 to preserve layout sizes
-   * while making characters invisible initially.
+   * Wraps all plain text characters in spans to preserve layout sizes
+   * while making characters invisible initially. Actual opacity/transform
+   * is handled by the .typing-char / .typing-char.revealed CSS classes
+   * for a smoother, GPU-friendly fade + rise instead of a hard jump.
    */
   function prepareTyping(element) {
     const html = element.innerHTML.trim();
@@ -114,7 +116,7 @@ window.closeMobile  = closeMobile;
       if (token.startsWith('<') && token.endsWith('>')) {
         newHTML += token;
       } else {
-        newHTML += `<span class="typing-char" style="opacity: 0; transition: opacity 0.1s;">${token}</span>`;
+        newHTML += `<span class="typing-char">${token}</span>`;
       }
     });
     element.innerHTML = newHTML;
@@ -135,11 +137,10 @@ window.closeMobile  = closeMobile;
     typingTriggered = true;
     const chars = label.querySelectorAll('.typing-char');
     const totalChars = chars.length;
-    // Trigger slide-in when typing reaches ~40% through the label text
-    const triggerAt = Math.floor(totalChars * 0.4);
+    // Trigger title float near completion (~70% of label text) for a seamless fluid flow
+    const triggerAt = Math.floor(totalChars * 0.7);
     let slideTriggered = false;
 
-    // Patched startTyping that fires slide-in mid-way
     function startTypingWithSlide(element, speed) {
       const chars = element.querySelectorAll('.typing-char');
       let i = 0;
@@ -151,11 +152,11 @@ window.closeMobile  = closeMobile;
 
       function type() {
         if (i < chars.length) {
-          chars[i].style.opacity = '1';
-          chars[i].parentNode.insertBefore(cursor, chars[i].nextSibling);
+          chars[i].classList.add('revealed');
+          chars[i].after(cursor);
           i++;
 
-          // Trigger slide-in once 40% of characters have been typed
+          // Trigger title animation near label completion for visual harmony
           if (!slideTriggered && i >= triggerAt && title) {
             slideTriggered = true;
             title.classList.add('animate');
@@ -163,17 +164,17 @@ window.closeMobile  = closeMobile;
 
           setTimeout(type, speed);
         } else {
-          // Cursor blinks briefly then fades out
+          // Cursor blinks briefly then fades out smoothly
           setTimeout(() => {
             cursor.style.opacity = '0';
-            setTimeout(() => cursor.remove(), 300);
-          }, 800);
+            setTimeout(() => cursor.remove(), 400);
+          }, 600);
         }
       }
       type();
     }
 
-    startTypingWithSlide(label, 30);
+    startTypingWithSlide(label, 42);
   };
 
   // Splash Screen Logic
@@ -482,4 +483,123 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+/* ═══════════════════════════════════════════════════════════════
+   9. PROFESSIONAL EXPERIENCE 3-COLUMN SLIDER
+   ═══════════════════════════════════════════════════════════════ */
+(function initProfSlider() {
+  function setupSlider() {
+    const track = document.getElementById('prof-slider-track');
+    const container = document.getElementById('prof-slider-container');
+    const prevBtn = document.getElementById('prof-prev-btn');
+    const nextBtn = document.getElementById('prof-next-btn');
+    const dotsContainer = document.getElementById('prof-dots');
+    
+    if (!track || !container) return;
+
+    const slides = Array.from(track.querySelectorAll('.prof-slide-item'));
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+
+    function getItemsPerPage() {
+      if (window.innerWidth >= 1024) return 3;
+      if (window.innerWidth >= 640) return 2;
+      return 1;
+    }
+
+    function getMaxIndex() {
+      const itemsPerPage = getItemsPerPage();
+      return Math.max(0, slides.length - itemsPerPage);
+    }
+
+    function updateDots() {
+      if (!dotsContainer) return;
+      const maxIdx = getMaxIndex();
+      dotsContainer.innerHTML = '';
+      
+      for (let i = 0; i <= maxIdx; i++) {
+        const dot = document.createElement('button');
+        dot.className = `prof-dot ${i === currentIndex ? 'active' : ''}`;
+        dot.setAttribute('aria-label', `Slide ${i + 1}`);
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateSlider() {
+      const maxIdx = getMaxIndex();
+      if (currentIndex > maxIdx) currentIndex = maxIdx;
+      if (currentIndex < 0) currentIndex = 0;
+
+      const gap = 24;
+      const itemWidth = slides[0].getBoundingClientRect().width;
+      const moveDistance = (itemWidth + gap) * currentIndex;
+
+      track.style.transform = `translateX(-${moveDistance}px)`;
+
+      updateDots();
+    }
+
+    function goTo(index) {
+      const maxIdx = getMaxIndex();
+      if (maxIdx <= 0) return;
+      currentIndex = (index + (maxIdx + 1)) % (maxIdx + 1);
+      updateSlider();
+    }
+
+    function next() {
+      const maxIdx = getMaxIndex();
+      if (maxIdx <= 0) return;
+      if (currentIndex < maxIdx) {
+        currentIndex++;
+      } else {
+        currentIndex = 0;
+      }
+      updateSlider();
+    }
+
+    function prev() {
+      const maxIdx = getMaxIndex();
+      if (maxIdx <= 0) return;
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = maxIdx;
+      }
+      updateSlider();
+    }
+
+    if (nextBtn) nextBtn.addEventListener('click', next);
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+
+    // Touch Swipe Support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    container.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    container.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) next();
+        else prev();
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', updateSlider, { passive: true });
+
+    updateSlider();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupSlider);
+  } else {
+    setupSlider();
+  }
+})();
+
 

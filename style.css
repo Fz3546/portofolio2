@@ -434,10 +434,10 @@ nav.nav-hidden {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px;
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  padding: 14px;
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
   background: var(--surface3);
   border: 1px solid var(--border);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -454,8 +454,8 @@ nav.nav-hidden {
 }
 
 .skill-logo-badge .logo-icon {
-  width: 22px;
-  height: 22px;
+  width: 34px;
+  height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -751,30 +751,49 @@ nav.nav-hidden {
 .typing-cursor {
   display: inline-block;
   width: 2px;
-  height: 0.8em;
-  background-color: currentColor;
-  margin-left: 3px;
+  height: 0.85em;
+  background-color: var(--accent);
+  margin-left: 2px;
   animation: blink-cursor 0.8s step-end infinite;
   vertical-align: baseline;
   position: relative;
   top: 1px;
+  will-change: opacity;
 }
 
 @keyframes blink-cursor {
-  from, to { background-color: transparent }
-  50% { background-color: currentColor }
+  from, to { opacity: 0; }
+  50% { opacity: 1; }
 }
 
-/* Slide in right transition for the title */
+/* Smooth fluid entrance transition for hero text elements */
 .slide-in-right {
   opacity: 0;
-  transform: translateX(-45px);
-  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(0, 22px, 0);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .slide-in-right.animate {
   opacity: 1;
-  transform: translateX(0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* Typing characters: silky smooth fade + gentle rise */
+.typing-char {
+  display: inline-block;
+  white-space: pre-wrap;
+  opacity: 0;
+  transform: translate3d(0, 8px, 0);
+  transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.typing-char.revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 
@@ -1146,12 +1165,44 @@ body.splash-active {
   z-index: 1;
 }
 
+/* Slow-flowing animated gradient wash — sits behind everything else,
+   gives the splash a living, colour-shifting backdrop instead of a flat bg.
+   Animates transform only (GPU-composited) instead of background-position,
+   which avoids per-frame repaint of a large blurred layer. */
+.splash-aurora {
+  position: absolute;
+  inset: -30%;
+  z-index: 0;
+  background:
+    radial-gradient(45% 40% at 20% 25%, rgba(124, 58, 237, 0.22) 0%, transparent 70%),
+    radial-gradient(40% 35% at 80% 20%, rgba(201, 162, 39, 0.16) 0%, transparent 70%),
+    radial-gradient(50% 45% at 50% 85%, rgba(10, 207, 131, 0.14) 0%, transparent 70%),
+    radial-gradient(35% 35% at 85% 80%, rgba(124, 58, 237, 0.14) 0%, transparent 70%);
+  filter: blur(60px);
+  animation: splash-aurora-flow 22s ease-in-out infinite;
+  will-change: transform;
+  opacity: 0.9;
+}
+
+[data-theme="light"] .splash-aurora {
+  opacity: 0.55;
+}
+
+@keyframes splash-aurora-flow {
+  0%   { transform: rotate(0deg)  scale(1)    translate(0, 0); }
+  33%  { transform: rotate(3deg)  scale(1.06) translate(2%, 3%); }
+  66%  { transform: rotate(-2deg) scale(1.03) translate(-3%, 2%); }
+  100% { transform: rotate(0deg)  scale(1)    translate(0, 0); }
+}
+
 .splash-orb1 {
   width: 500px;
   height: 500px;
   top: -10%;
   left: 20%;
   background: radial-gradient(circle, rgba(124, 58, 237, 0.20) 0%, transparent 70%);
+  animation: splash-orb-drift-1 12s ease-in-out infinite;
+  will-change: transform;
 }
 
 .splash-orb2 {
@@ -1160,6 +1211,83 @@ body.splash-active {
   bottom: -10%;
   right: 15%;
   background: radial-gradient(circle, rgba(201, 162, 39, 0.10) 0%, transparent 70%);
+  animation: splash-orb-drift-2 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+.splash-orb3 {
+  width: 380px;
+  height: 380px;
+  top: 35%;
+  left: 50%;
+  background: radial-gradient(circle, rgba(10, 207, 131, 0.10) 0%, transparent 70%);
+  animation: splash-orb-drift-3 16s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes splash-orb-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(40px, 30px) scale(1.08); }
+  66%      { transform: translate(-20px, 50px) scale(0.96); }
+}
+
+@keyframes splash-orb-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(-35px, -25px) scale(1.05); }
+  66%      { transform: translate(25px, -45px) scale(0.94); }
+}
+
+@keyframes splash-orb-drift-3 {
+  0%, 100% { transform: translate(-50%, 0) scale(1); opacity: 0.8; }
+  50%      { transform: translate(-50%, -30px) scale(1.15); opacity: 1; }
+}
+
+/* Soft floating particle dots — translated via transform (not
+   background-position) so the browser can composite it on the GPU
+   instead of repainting the whole layer every frame. Bleed extends
+   well past the translation distance so no edge is ever revealed. */
+.splash-particles {
+  position: absolute;
+  inset: -200px;
+  z-index: 2;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(124, 58, 237, 0.35) 1.5px, transparent 1.5px),
+                     radial-gradient(rgba(201, 162, 39, 0.30) 1.5px, transparent 1.5px);
+  background-size: 60px 60px, 90px 90px;
+  background-position: 0 0, 30px 45px;
+  animation: splash-particle-drift 24s linear infinite;
+  will-change: transform;
+  opacity: 0.55;
+}
+
+[data-theme="light"] .splash-particles {
+  opacity: 0.35;
+}
+
+@keyframes splash-particle-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-180px, -180px, 0); }
+}
+
+/* Faint moving grid line texture — same transform-based approach */
+.splash-grid {
+  position: absolute;
+  inset: -64px;
+  z-index: 1;
+  pointer-events: none;
+  background-image: linear-gradient(to right, var(--border) 1px, transparent 1px),
+                     linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.15;
+  mask-image: radial-gradient(circle at center, black 0%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle at center, black 0%, transparent 75%);
+  animation: splash-grid-pan 30s linear infinite;
+  will-change: transform;
+}
+
+@keyframes splash-grid-pan {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(64px, 64px, 0); }
 }
 
 [data-theme="light"] .splash-orb1 {
@@ -1182,6 +1310,19 @@ body.splash-active {
   padding: 32px;
   width: 100%;
   max-width: 700px;
+}
+
+.splash-content > * {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: splash-item-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.splash-text { animation-delay: 0.1s; }
+.splash-btn  { animation-delay: 0.45s; }
+
+@keyframes splash-item-in {
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .splash-title {
@@ -1310,12 +1451,273 @@ body.splash-active {
   animation: logo-shimmer 6s linear infinite;
   display: inline-block;
   opacity: 0;
-  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(0, 22px, 0);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 #typing-title.animate {
   opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
+
+
+/* ───────────────────────────────────────────────────────────────
+   26. REDUCED MOTION — respects OS/browser accessibility setting
+   and gives lower-powered devices a lighter, static fallback for
+   the decorative splash-screen background layers.
+   ─────────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-aurora,
+  .splash-orb1,
+  .splash-orb2,
+  .splash-orb3,
+  .splash-particles,
+  .splash-grid,
+  .splash-title,
+  #typing-title {
+    animation: none !important;
+  }
+
+  .typing-char {
+    transition-duration: 0.01s !important;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────
+   27. CREATIVE WELCOME TO MY PORTFOLIO BADGES & JUSTIFY STYLING
+   ─────────────────────────────────────────────────────────────── */
+
+/* Splash Screen Welcome Badge */
+.splash-welcome-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 22px;
+  border-radius: 999px;
+  background: rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  margin-bottom: 16px;
+  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.18), inset 0 0 12px rgba(255, 255, 255, 0.08);
+  animation: welcome-pulse-glow 3s ease-in-out infinite alternate;
+}
+
+[data-theme="light"] .splash-welcome-tag {
+  background: rgba(201, 162, 39, 0.12);
+  border-color: rgba(201, 162, 39, 0.35);
+  box-shadow: 0 4px 24px rgba(201, 162, 39, 0.2);
+}
+
+.splash-welcome-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(12px, 1.8vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--accent), var(--gold), #38bdf8, var(--accent));
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: welcome-shimmer 4s linear infinite;
+}
+
+/* Hero Section Creative Welcome Header */
+.hero-welcome-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: -4px;
+}
+
+.hero-welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.hero-welcome-badge:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px var(--glow);
+}
+
+.welcome-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  animation: welcome-dot-pulse 2s ease-in-out infinite;
+}
+
+[data-theme="light"] .welcome-dot {
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold);
+}
+
+.hero-welcome-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(11px, 1.5vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, var(--text), var(--accent), var(--gold), var(--text));
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: welcome-shimmer 6s linear infinite;
+}
+
+.welcome-sparkle {
+  font-size: 14px;
+  animation: floatY 2.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes welcome-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes welcome-pulse-glow {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.03); }
+}
+
+@keyframes welcome-dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.4); }
+}
+
+/* Section About Paragraph Justified */
+.about-paragraph {
+  text-align: justify !important;
+  text-justify: inter-word !important;
+  hyphens: auto;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   28. PROFESSIONAL EXPERIENCE 3-COLUMN SLIDER
+   ─────────────────────────────────────────────────────────────── */
+
+.prof-slider-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.prof-nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  outline: none;
+}
+
+.prof-nav-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--glow);
+}
+
+[data-theme="light"] .prof-nav-btn:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #1a1200;
+  box-shadow: 0 8px 20px rgba(201, 162, 39, 0.3);
+}
+
+.prof-slider-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 8px 0 16px;
+}
+
+.prof-slider-track {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.prof-slide-item {
+  flex: 0 0 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .prof-slide-item {
+    flex: 0 0 calc((100% - 24px) / 2);
+    max-width: calc((100% - 24px) / 2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .prof-slide-item {
+    flex: 0 0 calc((100% - 48px) / 3);
+    max-width: calc((100% - 48px) / 3);
+  }
+}
+
+.prof-dots-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.prof-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  outline: none;
+}
+
+.prof-dot.active {
+  width: 32px;
+  border-radius: 6px;
+  background: var(--accent);
+}
+
+[data-theme="light"] .prof-dot.active {
+  background: var(--gold);
+}
+
 
 
 
