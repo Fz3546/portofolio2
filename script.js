@@ -329,6 +329,64 @@ window.closeMobile  = closeMobile;
 
 
 /* ═══════════════════════════════════════════════════════════════
+   5.5 NAVBAR GLASS CLICK & RIPPLE EFFECT
+   Creates dynamic glass ripple wave + container sheen flash
+   whenever any navbar link or container is clicked.
+═══════════════════════════════════════════════════════════════ */
+(function initNavbarGlassEffect() {
+  function createGlassRipple(e, container) {
+    if (!container) return;
+    
+    const rect = container.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height) * 1.5;
+    const x = e.clientX - rect.left - size / 2;
+    const y = e.clientY - rect.top - size / 2;
+
+    const wave = document.createElement('span');
+    wave.className = 'glass-ripple-wave';
+    wave.style.width = `${size}px`;
+    wave.style.height = `${size}px`;
+    wave.style.left = `${x}px`;
+    wave.style.top = `${y}px`;
+
+    container.appendChild(wave);
+
+    setTimeout(() => {
+      wave.remove();
+    }, 700);
+  }
+
+  function handleNavClick(e) {
+    const link = e.target.closest('.nav-link, .brand-logo');
+    const container = e.target.closest('.nav-glass-container');
+
+    if (link) {
+      link.classList.add('glass-clicked');
+      setTimeout(() => link.classList.remove('glass-clicked'), 350);
+      createGlassRipple(e, link);
+    } else if (container) {
+      container.classList.add('glass-flash');
+      setTimeout(() => container.classList.remove('glass-flash'), 450);
+      createGlassRipple(e, container);
+    }
+  }
+
+  function setupListeners() {
+    const navbars = document.querySelectorAll('.nav-glass-container');
+    navbars.forEach(nav => {
+      nav.addEventListener('click', handleNavClick);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupListeners);
+  } else {
+    setupListeners();
+  }
+})();
+
+
+/* ═══════════════════════════════════════════════════════════════
    6. CONTACT FORM MOCK SUBMIT
    Simulates a network request, then shows a success message.
    Replace the setTimeout block with a real fetch() call when
