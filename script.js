@@ -661,3 +661,124 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 
 
+/* ═══════════════════════════════════════════════════════════════
+   10. DESAIN GRAFIS 2-COLUMN SLIDER
+   ═══════════════════════════════════════════════════════════════ */
+(function initDesignSlider() {
+  function setupSlider() {
+    const track = document.getElementById('design-slider-track');
+    const container = document.getElementById('design-slider-container');
+    const prevBtn = document.getElementById('design-prev-btn');
+    const nextBtn = document.getElementById('design-next-btn');
+    const dotsContainer = document.getElementById('design-dots');
+    
+    if (!track || !container) return;
+
+    const slides = Array.from(track.querySelectorAll('.design-slide-item'));
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+
+    function getItemsPerPage() {
+      if (window.innerWidth >= 640) return 2; // Always 2 columns on tablet & desktop
+      return 1; // 1 column on mobile
+    }
+
+    function getMaxIndex() {
+      const itemsPerPage = getItemsPerPage();
+      return Math.max(0, slides.length - itemsPerPage);
+    }
+
+    function updateDots() {
+      if (!dotsContainer) return;
+      const maxIdx = getMaxIndex();
+      dotsContainer.innerHTML = '';
+      
+      for (let i = 0; i <= maxIdx; i++) {
+        const dot = document.createElement('button');
+        dot.className = `prof-dot ${i === currentIndex ? 'active' : ''}`;
+        dot.setAttribute('aria-label', `Slide ${i + 1}`);
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateSlider() {
+      const maxIdx = getMaxIndex();
+      if (currentIndex > maxIdx) currentIndex = maxIdx;
+      if (currentIndex < 0) currentIndex = 0;
+
+      const gap = 24;
+      const itemWidth = slides[0].getBoundingClientRect().width;
+      const moveDistance = (itemWidth + gap) * currentIndex;
+
+      track.style.transform = `translateX(-${moveDistance}px)`;
+
+      updateDots();
+    }
+
+    function goTo(index) {
+      const maxIdx = getMaxIndex();
+      if (maxIdx <= 0) return;
+      currentIndex = (index + (maxIdx + 1)) % (maxIdx + 1);
+      updateSlider();
+    }
+
+    function next() {
+      const maxIdx = getMaxIndex();
+      if (maxIdx <= 0) return;
+      if (currentIndex < maxIdx) {
+        currentIndex++;
+      } else {
+        currentIndex = 0;
+      }
+      updateSlider();
+    }
+
+    function prev() {
+      const maxIdx = getMaxIndex();
+      if (maxIdx <= 0) return;
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = maxIdx;
+      }
+      updateSlider();
+    }
+
+    if (nextBtn) nextBtn.addEventListener('click', next);
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+
+    // Touch Swipe Support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    container.addEventListener('touchstart', (e) => {
+      if (e.target.closest('.slider-btn')) return;
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    container.addEventListener('touchend', (e) => {
+      if (e.target.closest('.slider-btn')) return;
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) next();
+        else prev();
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', updateSlider, { passive: true });
+
+    updateSlider();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupSlider);
+  } else {
+    setupSlider();
+  }
+})();
+
+
+
