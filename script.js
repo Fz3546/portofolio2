@@ -127,13 +127,9 @@ window.closeMobile  = closeMobile;
 
   let typingTriggered = false;
 
-  // Expose function globally to be triggered by Scroll Reveal or splash button
+  // Expose function globally to be triggered by Scroll Reveal or immediately on load
   window.triggerTyping = function() {
     if (typingTriggered) return;
-    
-    // Don't trigger animations if splash screen is still active (scroll-lock active)
-    if (document.body.classList.contains('splash-active')) return;
-    
     typingTriggered = true;
     const chars = label.querySelectorAll('.typing-char');
     const totalChars = chars.length;
@@ -177,64 +173,13 @@ window.closeMobile  = closeMobile;
     startTypingWithSlide(label, 42);
   };
 
-  // Splash Screen Logic
-  const splash = document.getElementById('landing-splash');
-
-  function initSplash() {
-    if (!splash) return;
-
-    if (sessionStorage.getItem('visited-intro') === 'true') {
-      // User already visited in this session: skip intro
-      splash.style.display = 'none';
-      document.body.classList.remove('splash-active');
-      
-      // Ensure nav is visible immediately
-      const nav = document.querySelector('nav');
-      if (nav) nav.classList.remove('nav-hidden');
-      
-      // Auto-trigger name animation slightly later
-      setTimeout(() => {
-        window.triggerTyping();
-      }, 300);
-    } else {
-      // First visit: lock page and show splash
-      document.body.classList.add('splash-active');
-    }
-  }
-
-  function enterPortfolio() {
-    if (!splash) return;
-
-    // Mark as visited in session
-    sessionStorage.setItem('visited-intro', 'true');
-
-    // Unlock body scroll
-    document.body.classList.remove('splash-active');
-
-    // Fade in and slide down nav bar
-    const nav = document.querySelector('nav');
-    if (nav) nav.classList.remove('nav-hidden');
-
-    // Smooth scroll to the main content (#home)
-    const homeSection = document.getElementById('home');
-    if (homeSection) {
-      homeSection.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Trigger typing and name animations after scroll starts
-    setTimeout(() => {
-      window.triggerTyping();
-    }, 800);
-  }
-
-  // Bind enterPortfolio to global window context
-  window.enterPortfolio = enterPortfolio;
-
-  // Run splash check on DOM load
+  // Auto-trigger typing animation shortly after page load
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSplash);
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(window.triggerTyping, 400);
+    });
   } else {
-    initSplash();
+    setTimeout(window.triggerTyping, 400);
   }
 })();
 
